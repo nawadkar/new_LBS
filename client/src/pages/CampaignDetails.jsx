@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { CountBox, CustomButton, Loader ,FundFormField} from '../components';
+import { CountBox, CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { thirdweb } from '../assets';
 
@@ -44,8 +44,8 @@ const CampaignDetails = () => {
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl"/>
-          <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
-            <div className="absolute h-full bg-[#4acd8d]" style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%'}}>
+          <div className="relative w-full h-[20px] bg-[#3a3a43] mt-2">
+            <div className="absolute h-full bg-[#4acd8d] " style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%'}}>
             </div>
           </div>
         </div>
@@ -68,7 +68,7 @@ const CampaignDetails = () => {
               </div>
               <div>
                 <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">{state.owner}</h4>
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">10 Campaigns</p>
+                {/* <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#808191]">10 Campaigns</p> */}
               </div>
             </div>
           </div>
@@ -101,70 +101,22 @@ const CampaignDetails = () => {
           <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#1c1c24] rounded-[10px]">
-            <p className="font-epilogue fount-medium text-[15px] leading-[15px] text-center text-[#808191]">
+            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#808191]">
               Fund the campaign
             </p>
-
-    
             <div className="mt-[30px]">
-              <div className='flex flex-wrap'>
-                <label className="flex-1 w-full flex flex-col">
-                  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Food</span>
-                
-                <input
-                  type="number"
-                  placeholder="50"
-                  step="0.01"
-                  className="py-[10px] sm:px-[10px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  />
-                  </label>
+              <input 
+                type="number"
+                placeholder="ETH 0.1"
+                step="0.01"
+                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
+              />
 
-                <label className="flex-1 w-full flex flex-col">
-                  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Health</span>
-
-                  <input
-                    type="number"
-                    placeholder="50"
-                    step="0.01"
-                    className="py-[10px] sm:px-[10px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                </label>
-
-                <label className="flex-1 w-full flex flex-col">
-                  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Shelter</span>
-
-                  <input
-                    type="number"
-                    placeholder="50"
-                    step="0.01"
-                    className="py-[10px] sm:px-[10px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                </label>
-
-                <label className="flex-1 w-full flex flex-col">
-                  <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#808191] mb-[10px]">Sanitation</span>
-
-                  <input
-                    type="number"
-                    placeholder="50"
-                    step="0.01"
-                    className="py-[10px] sm:px-[10px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-white text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                    value={amount}
-                    onChange={(e) => setAmount(e.target.value)}
-                  />
-                </label>
-              </div>
-              
-
-              <div className="my-[20px] p-4 bg-transparent rounded-[10px]">
-                {/* <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
-                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p> */}
+              <div className="my-[20px] p-4 bg-[#13131a] rounded-[10px]">
+                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
+                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
               </div>
 
               <CustomButton 

@@ -12,7 +12,7 @@ const Navbar = () => {
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const { connect, address } = useStateContext();
 
-  const basesAddress = 0xC439329EdB0C023F5E5B1C844449Ad2d4168d933;
+  const basesAddress = 0xF1e4fB3bB43d90235627252bdd24dF37D805C739;
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">

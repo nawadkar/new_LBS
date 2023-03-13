@@ -7,7 +7,7 @@ import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0x94362b12877d9bf0F47534e7ea758Ef622646243');
+  const { contract } = useContract('0x8CBaF0697A08F05fB5bA1B7f67444dA60290b2bd');
   const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
 
   const address = useAddress();
@@ -18,13 +18,9 @@ export const StateContextProvider = ({ children }) => {
       const data = await createCampaign([
         address, // owner
         form.title, // title
+        form.description, // description
+        form.target,
         new Date(form.deadline).getTime(), // deadline,
-        // form.description, // description
-        form.food,
-        form.health,
-        form.shelter,
-        form.sanitation,
-        
         form.image
       ])
 
